@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?><!--
+        *** GENERATED FROM jax-ws.xml - DO NOT EDIT !                             ***
+        *** TO MODIFY wsimport options USE Web Service node -> Edit WS Attributes ***
+        *** TO CHANGE TARGETS GENERATED TO jaxws-build.xml COPY THOSE             ***
+        *** TARGETS TO ../build.xml AND MODIFY THAT FILE INSTEAD                  ***
+
+        --><project xmlns:xalan="http://xml.apache.org/xslt" xmlns:j2seproject3="http://www.netbeans.org/ns/j2se-project/3" xmlns:jaxws="http://www.netbeans.org/ns/jax-ws/1">
+    <!--
+                ===================
+                JAX-WS WSIMPORT SECTION
+                ===================
+            -->
+    <target name="wsimport-init" depends="init">
+        <mkdir dir="${build.generated.sources.dir}/jax-ws"/>
+        <taskdef name="wsimport" classname="com.sun.tools.ws.ant.WsImport">
+            <classpath path="${libs.jaxws21.classpath}"/>
+        </taskdef>
+    </target>
+    <target name="wsimport-client-MovieTicketBook" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/MovieTicketBook"/>
+        <property name="wsdl-MovieTicketBook" location="xml-resources/web-service-references/MovieTicketBook/wsdl/localhost_8080/MovieTicketBooking/MovieTicketBook.wsdl"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/MovieTicketBook" destdir="${build.generated.dir}/jax-wsCache/MovieTicketBook" wsdl="${wsdl-MovieTicketBook}" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/MovieTicketBooking/MovieTicketBook?wsdl" xnocompile="true" xendorsed="true" package="movieticketbooking_client">
+            <binding dir="xml-resources/web-service-references/MovieTicketBook/bindings" includes="MovieTicketBook_handler.xml"/>
+            <depends file="${wsdl-MovieTicketBook}"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/MovieTicketBook"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/MovieTicketBook">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+        <copy todir="${build.classes.dir}">
+            <fileset dir="${build.generated.dir}/jax-wsCache/MovieTicketBook">
+                <include name="**/*.xml"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-MovieTicketBook" depends="-init-project">
+        <delete dir="${build.generated.dir}/jax-wsCache/MovieTicketBook"/>
+        <delete dir="${build.generated.sources.dir}/jax-ws/movieticketbooking_client"/>
+    </target>
+    <target name="wsimport-client-generate" depends="wsimport-client-MovieTicketBook"/>
+</project>

@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.2-b608 (trunk-7979; 2015-01-21T12:50:19+0000) JAXWS-RI/2.2.11-b150120.1832 JAXWS-API/2.2.12 JAXB-RI/2.2.12-b141219.1637 JAXB-API/2.2.13-b141020.1521 svn-revision#unknown. --><xs:schema xmlns:tns="http://MovieTicketModel/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://MovieTicketModel/">
+
+<xs:element name="bookTicket" type="tns:bookTicket"/>
+
+<xs:element name="bookTicketResponse" type="tns:bookTicketResponse"/>
+
+<xs:element name="getMoviesInfo" type="tns:getMoviesInfo"/>
+
+<xs:element name="getMoviesInfoResponse" type="tns:getMoviesInfoResponse"/>
+
+<xs:complexType name="bookTicket">
+<xs:sequence>
+<xs:element name="movieName" type="xs:string" minOccurs="0"/>
+<xs:element name="ticketCount" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="bookTicketResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getMoviesInfo">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getMoviesInfoResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:movieInfo" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="movieInfo">
+<xs:sequence>
+<xs:element name="availableTickets" type="xs:string" minOccurs="0"/>
+<xs:element name="movieName" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
